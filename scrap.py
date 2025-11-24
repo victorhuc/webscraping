@@ -77,8 +77,12 @@ for licitacao in dados_licitacoes:
         print("❌ Nenhuma informação de tabela encontrada.")
     
     print("-" * 40)  # Separação entre licitações
+# Salvar os dados em um arquivo JSON
+nome_arquivo = f"licitacoes_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
-input("Pressione Enter para sair...")
+with open(nome_arquivo, "w", encoding="utf-8") as f:
+    json.dump(dados_licitacoes, f, ensure_ascii=False, indent=2)
 
+print(f"\n✅ Scraping finalizado. Arquivo gerado: {nome_arquivo}")
 
 
